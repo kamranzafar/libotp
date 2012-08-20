@@ -27,13 +27,9 @@ public class TestOTP {
 	public void testTOTP() {
 		String key = "12345678";
 
-		System.out.println(OTP.generate("" + key, "" + System.currentTimeMillis(), 6, "totp"));
-		System.out.println(OTP.generate("" + key, "" + System.currentTimeMillis(), 6, "totp"));
-		System.out.println(OTP.generate("" + key, "" + System.currentTimeMillis(), 6, "totp"));
-		System.out.println(OTP.generate("" + key, "" + System.currentTimeMillis(), 6, "totp"));
-		System.out.println(OTP.generate("" + key, "" + System.currentTimeMillis(), 6, "totp"));
-		System.out.println(OTP.generate("" + key, "" + System.currentTimeMillis(), 6, "totp"));
-		System.out.println(OTP.generate("" + key, "" + System.currentTimeMillis(), 6, "totp"));
+		for (int i = 0; i < 10; i++) {
+			System.out.println(OTP.generate("" + key, "" + System.currentTimeMillis(), 6, "totp"));
+		}
 	}
 
 	@Test
@@ -41,8 +37,9 @@ public class TestOTP {
 		String secret = "helloworld";
 
 		try {
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < 10; i++) {
 				System.out.println(OTP.generate(secret, "" + 2, 6, "hotp"));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
